@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  web:
+    build: .
+    volumes:
+      - ./app:/var/www/symfony
+    ports:
+      - 8084:80
+    environment:
+      SYMFONY_ENV: dev
+      SYMFONY_DEBUG: 1
+      LOG_LEVEL: debug
+      BACKEND_API_SERVER: http://app
+
+networks:
+  default:
+    external:
+      name: demo-applications

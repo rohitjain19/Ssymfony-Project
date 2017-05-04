@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("form").submit(function(e){
+	 value=$("#form_start_date").val();
+	 fein=$("#form_fein").val();
+	 legalname=$("#form_legal_name").val();
+	 type=$("#form_type").val();
+	 industry=$("#form_industry").val();
+	 street1=$("#form_street1").val();
+	 street2=$("#form_street2").val();
+	 street3=$("#form_street3").val();
+	 city=$("#form_city").val();
+	 region=$("#form_region").val();
+	 postcode=$("#form_postcode").val();
+	 timezone=$("#form_timezone").val();
+	 var name = /^[a-zA-Z ]*$/;
+	var numeric = /^[0-9]+$/;
+	
+	if(!numeric.test($.trim(fein)) || fein=="")
+	{
+	$('#dis').html("Please enter valid fein");
+	return false;
+	}
+	if(!name.test($.trim(legalname)) || legalname=="")
+	{
+	$('#dis').html("Please enter valid Name");
+	return false;
+	}
+	if(!name.test($.trim(type)) || type=="")
+	{
+	$('#dis').html("Please enter valid type");
+	return false;
+	}
+		if(!name.test($.trim(industry)) || industry=="")
+	{
+	$('#dis').html("Please enter valid industry");
+	return false;
+	}
+	if(street1=="")
+	{
+	$('#dis').html("Please enter valid street1");
+	return false;
+	}
+	if(street2=="")
+	{
+	$('#dis').html("Please enter valid street2");
+	return false;
+	}
+	if(street3=="")
+	{
+	$('#dis').html("Please enter valid street3");
+	return false;
+	}
+	if(city=="")
+	{
+	$('#dis').html("Please enter valid city");
+	return false;
+	}
+	if(!numeric.test($.trim(postcode)) || postcode=="")
+	{
+	$('#dis').html("Please enter valid postcode");
+	return false;
+	}
+    });
+});
+</script>
+</head>
+
+<div class="row">
+<div id="dis" style="color:red;" > </div>
+
+<div style="margin-left:20%; margin-top:6%;" class="small-12 columns">
+<h1> Bussiness Information </h1>
+{{ form_start(form) }}
+    
+{{ form_end(form) }}
+</div>
+</div>
+{% endblock %}

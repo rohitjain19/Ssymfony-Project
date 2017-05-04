@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <h1 class="text-danger">Error</h1>
+    <div class="well">
+
+        <p class="text-danger">
+            <i class="fa fa-bomb"></i>
+            {{ message|trim }}
+        </p>
+
+    </div>
+
+{% endblock %}

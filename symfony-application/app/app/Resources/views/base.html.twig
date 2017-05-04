@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Demo Application {% block title '' %}</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.e20.co/css/inspinia-2.4.css">
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css" />
+        {% block stylesheets %}{% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body class="{{ bodyClass|default('') }}">
+        {% block body %}
+
+            <div id="wrapper">
+
+                {{ include('_navigation.html.twig') }}
+
+                <div id="page-wrapper" class="gray-bg">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="wrapper wrapper-content animated {{ contentAnimation|default('fadeInUp') }}">
+                                {% block content %}{% endblock %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer">
+                        <div class="pull-right"><strong>Version: </strong>{{ ems_version|default('2.x') }}</div>
+                        <div>
+                        {% block footer %}
+                            <small>Hand Crafted with <i class="fa fa-heart"></i> by ECG Engineering</small>
+                        {% endblock %}
+                        </div>
+                    </div>
+                </div>  <!-- #page-wrapper -->
+            </div>  <!-- #wrapper -->
+
+        {% endblock %}
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.6.0/metisMenu.min.js" integrity="sha384-sNvR6071PYuJAPjHopDK71lziPPNMKpCMovi5m3626bIK99mX0B8inWX6wngq+9j" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js" integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.e20.co/js/jquery.slimscroll.min.js" integrity="sha384-vZl7889PwCFXkHkul5y3E7hbTKdj5G1mpwXEc2qIU2hsr34+aOM2eSbVSs9AqFJS" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{{ asset('js/inspinia.js') }}"></script>
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

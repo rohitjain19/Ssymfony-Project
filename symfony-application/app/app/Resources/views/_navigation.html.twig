@@ -1,0 +1,20 @@
+{% set currentRoute = app.request.attributes.get('_route') %}
+
+<nav class="navbar-default navbar-static-side">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+
+            {# Navigation #}
+
+            <li class="{{ currentRoute == 'homepage' ? 'active' : ''}}">
+                <a href="{{ path('homepage') }}"><i class="fa fa-home"></i><span class="nav-label">Home</span></a>
+            </li>
+            <li class="{{ currentRoute == 'health' ? 'active' : ''}}">
+                <a href="{{ path('health.new') }}"><i class="fa fa-heart"></i><span class="nav-label">Health Check</span></a>
+            </li>
+			<li class="{{ currentRoute == 'bussiness' ? 'active' : ''}}">
+                <a href="{{ path('bussiness.new') }}"><i class="fa fa-heart"></i><span class="nav-label">Bussiness Information</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
